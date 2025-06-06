@@ -84,7 +84,7 @@ export const Experience = () => {
 
   return (
     <>
-      <CameraControls ref={controls} dollySpeed={0.5} />
+      <CameraControls ref={controls} dollySpeed={1} />
       <mesh ref={meshFitCameraHome} position-z={1.5} visible={false}>
         <boxGeometry args={[7.5, 2, 2]} />
         <meshBasicMaterial color="orange" transparent opacity={0.5} />
@@ -112,7 +112,7 @@ export const Experience = () => {
             <Float floatIntensity={4} rotationIntensity={5}>
               <ShipModel
                 scale={0.07}
-                position-y={-1}
+                position-y={-0.8}
                 rotation-y={-THREE.MathUtils.degToRad(25)}
                 rotation-x={THREE.MathUtils.degToRad(40)}
               />

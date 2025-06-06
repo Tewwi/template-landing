@@ -15,7 +15,11 @@ const TextHero = () => {
 
   return (
     <div className="h-screen w-screen">
-      <Canvas shadows camera={{ position: [0, 0, 8], fov: 42 }}>
+      <Canvas
+        shadows
+        frameloop="demand"
+        camera={{ position: [0, 0, 8], fov: 42 }}
+      >
         <color attach="background" args={["#171720"]} />
         <fog attach="fog" args={["#171720", 10, 30]} />
         <Suspense>

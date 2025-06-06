@@ -12,6 +12,27 @@ export function LaptopModel() {
   // const [currentPage] = useAtom(currentPageAtom);
   const content = useMemo(() => <LaptopContent />, []);
 
+  const htmlContent = useMemo(
+    () => (
+      <Html
+        className="max-h-[550px]"
+        rotation-x={-Math.PI / 2}
+        position={[0, 0.07, -0.09]}
+        transform
+        occlude={false}
+        distanceFactor={4.2}
+        // scale={0.42}
+        zIndexRange={[2, 0]}
+        as="div"
+      >
+        <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
+          {content}
+        </div>
+      </Html>
+    ),
+    [content]
+  );
+
   // useEffect(() => {
   //   if (currentPage === "member") {
   //     const event = setTimeout(() => {
@@ -27,7 +48,7 @@ export function LaptopModel() {
     <group
       scale={0.2}
       rotation-y={THREE.MathUtils.degToRad(25)}
-      position={[-1, 0.09, -3.2]}
+      position={[-1, 0.09, -2.5]}
     >
       <group rotation-x={-0.425} position={[0, -0.04, 0.48]}>
         <group position={[0, 2.96, -0.13]} rotation={[Math.PI / 2, 0, 0]}>
@@ -39,27 +60,10 @@ export function LaptopModel() {
             material={materials["matte.001"]}
             geometry={(nodes["Cube008_1"] as THREE.Mesh).geometry}
           />
-          <mesh geometry={(nodes["Cube008_2"] as THREE.Mesh).geometry}>
-            {/* Drei's HTML component can "hide behind" canvas geometry */}
-            <Html
-              className="overflow-auto max-h-[550px]"
-              rotation-x={-Math.PI / 2}
-              position={[0, 0.05, -0.09]}
-              transform
-              occlude={false}
-              scale={0.42}
-              distanceFactor={10}
-              zIndexRange={[1, 0]}
-              as="div"
-            >
-              <div
-                className="wrapper"
-                onPointerDown={(e) => e.stopPropagation()}
-              >
-                {content}
-              </div>
-            </Html>
-          </mesh>
+          <group>
+            <mesh geometry={(nodes["Cube008_2"] as THREE.Mesh).geometry} />
+            {htmlContent}
+          </group>
         </group>
       </group>
       <mesh
