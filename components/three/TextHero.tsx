@@ -26,7 +26,7 @@ const TextHero = () => {
         </EffectComposer>
       </Canvas>
 
-      <div className="fixed inset-0 pointer-events-none translate-x-[-300px] translate-y-[100px]">
+      <div className="fixed inset-0 pointer-events-none translate-x-[-50px] translate-y-[100px]">
         <section
           className={`flex w-full h-full flex-col items-center justify-center 
       duration-500`}
@@ -36,7 +36,7 @@ const TextHero = () => {
         </section>
       </div>
 
-      <div className="fixed inset-0 pointer-events-none translate-x-[-200px] translate-y-[100px]">
+      <div className="fixed inset-0 pointer-events-none translate-x-[50px] translate-y-[100px]">
         <section
           className={`flex w-full h-full flex-col items-center justify-center 
       duration-500`}

@@ -60,14 +60,11 @@ type GLTFResult = GLTF & {
   animations: THREE.AnimationClip[];
 };
 
-type IslandProps = {
-  html?: boolean;
-} & JSX.IntrinsicElements["group"];
+type IslandProps = {} & JSX.IntrinsicElements["group"];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Island = forwardRef<IslandProps, any>(
-  ({ html, ...props }, laptopRef) => {
-    console.log("html", html);
+  ({ ...props }, laptopRef) => {
     const { nodes, materials } = useGLTF(
       "/models/new_island.glb"
     ) as unknown as GLTFResult;
