@@ -1,5 +1,5 @@
 import { Text } from "@react-three/drei";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useAtom } from "jotai";
@@ -49,6 +49,18 @@ const Slogan = () => {
       });
     }
   });
+
+  useEffect(() => {
+    if (currentPage !== "store") {
+      setY(-2);
+      setOpacity(0);
+      setSecondY(-2);
+      setSecondOpacity(0);
+      setStarted(false);
+      setSecondStarted(false);
+      startTimeRef.current = null;
+    }
+  }, [currentPage]);
 
   return (
     <>

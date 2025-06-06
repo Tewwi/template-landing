@@ -12,6 +12,12 @@ const LaptopContent = () => {
     }, 2000);
   };
 
+  React.useEffect(() => {
+    if (currentPage !== "member" && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, [currentPage]);
+
   return (
     <div className="w-full max-h-[520px] max-w-[810px] overflow-hidden ">
       <video
@@ -19,7 +25,7 @@ const LaptopContent = () => {
         controls
         width="100%"
         playsInline
-        autoPlay={currentPage === "member"}
+        // autoPlay={currentPage === "member"}
         style={{ cursor: "auto !important" }}
         onEnded={handleEnded}
         // onPlay={handleEnded}

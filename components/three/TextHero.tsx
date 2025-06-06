@@ -10,7 +10,7 @@ import { Button } from "../ui/button";
 export const currentPageAtom = atom("intro");
 
 const TextHero = () => {
-  const [, setCurrentPage] = useAtom(currentPageAtom);
+  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
   if (typeof window === "undefined") return null;
 
   return (
@@ -30,24 +30,38 @@ const TextHero = () => {
         </EffectComposer>
       </Canvas>
 
-      <div className="fixed inset-0 pointer-events-none translate-x-[-50px] translate-y-[100px]">
-        <section
-          className={`flex w-full h-full flex-col items-center justify-center 
+      <div className="fixed inset-0 pointer-events-none flex flex-col items-center justify-end pb-2">
+        <div className="flex gap-4 w-fit justify-center">
+          <section
+            className={`flex w-full h-full flex-col items-center justify-center 
       duration-500`}
-        >
-          <div className="h-[66%]"></div>
-          <Button onClick={() => setCurrentPage("store")}>Slogan</Button>
-        </section>
-      </div>
+          >
+            <div className="h-[66%]"></div>
+            {currentPage !== "store" && (
+              <Button onClick={() => setCurrentPage("store")}>Slogan</Button>
+            )}
+          </section>
 
-      <div className="fixed inset-0 pointer-events-none translate-x-[50px] translate-y-[100px]">
-        <section
-          className={`flex w-full h-full flex-col items-center justify-center 
+          <section
+            className={`flex w-full h-full flex-col items-center justify-center 
       duration-500`}
-        >
-          <div className="h-[66%]"></div>
-          <Button onClick={() => setCurrentPage("member")}>Member</Button>
-        </section>
+          >
+            <div className="h-[66%]"></div>
+            {currentPage !== "member" && (
+              <Button onClick={() => setCurrentPage("member")}>Member</Button>
+            )}
+          </section>
+
+          <section
+            className={`flex w-full h-full flex-col items-center justify-center 
+      duration-500`}
+          >
+            <div className="h-[66%]"></div>
+            {currentPage !== "home" && (
+              <Button onClick={() => setCurrentPage("home")}>Home</Button>
+            )}
+          </section>
+        </div>
       </div>
     </div>
   );
