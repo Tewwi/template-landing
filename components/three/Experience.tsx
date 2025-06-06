@@ -59,7 +59,7 @@ export const Experience = () => {
       });
       controls.current.camera.updateMatrixWorld();
     } else {
-      controls.current.smoothTime = 1.4;
+      controls.current.smoothTime = 1.6;
       controls.current.fitToBox(meshFitCameraHome.current, true);
     }
   }, [currentPage]);

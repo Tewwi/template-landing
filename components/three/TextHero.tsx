@@ -17,7 +17,7 @@ const TextHero = () => {
     <div className="h-screen w-screen">
       <Canvas
         shadows
-        frameloop="demand"
+        // frameloop="demand"
         camera={{ position: [0, 0, 8], fov: 42 }}
       >
         <color attach="background" args={["#171720"]} />
